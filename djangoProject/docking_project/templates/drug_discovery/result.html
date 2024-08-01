@@ -1,0 +1,20 @@
+<!-- drug_discovery/templates/drug_discovery/result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Discovery Result</title>
+</head>
+<body>
+    <h1>Drug Discovery Result</h1>
+    <p>LLaMA3 Output SMILES: {{ smiles }}</p>
+    <p>Cohere Output: {{ cohere_output }}</p>
+    <h2>2D Structure</h2>
+    <img src="data:image/png;base64,{{ img }}" alt="2D Structure">
+    <h2>3D Structure</h2>
+    <div>
+        {{ html|safe }}
+    </div>
+    <h1>{{cent}}</h1>
+    <a href="{% url 'index' %}">Back</a>
+</body>
+</html>

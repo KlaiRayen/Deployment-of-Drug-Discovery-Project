@@ -1,0 +1,15 @@
+<!-- drug_discovery/templates/drug_discovery/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Discovery with AI</title>
+</head>
+<body>
+    <h1>Drug Discovery with AI</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generate SMILES</button>
+    </form>
+</body>
+</html>

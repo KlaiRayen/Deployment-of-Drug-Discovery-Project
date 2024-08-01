@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            color: #007BFF;
+            margin-bottom: 1rem;
+        }
+        img {
+            max-width: 50%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        p {
+            max-width: 80%;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        a {
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <br><br>
+    <h1>3D Visualization of Docking Result</h1>
+    <p>Below is the 3D visualization of the docking results for the provided receptor and ligand files. This image shows how the ligand binds to the receptor, which helps in understanding the interaction and affinity between them.</p>
+    <img src="{{ pdb_url }}" alt="3D Visualization">
+    <p>If you have further questions or need additional analyses, feel free to upload another PDB file or contact us for more information.</p>
+    <a href="{% url 'upload_pdb' %}">Upload another PDB file</a>
+</body>
+</html>
