@@ -1,5 +1,5 @@
-receptor = C:\Users\klair\Desktop\AutomatedDocking\Automated-Docking\djangoProject\docking_project\media\output.pdbqt
-ligand = C:\Users\klair\Desktop\AutomatedDocking\Automated-Docking\djangoProject\docking_project\media\ligand.pdbqt
+receptor = C:\Users\klair\Desktop\AutomatedDocking\Automated-Docking\djangoProject\docking_project\media\1stp_DOCK.pdbqt
+ligand = C:\Users\klair\Desktop\AutomatedDocking\Automated-Docking\djangoProject\docking_project\media\lig.pdbqt
 center_x = 11.09
 center_y = 1.74
 center_z = -10.63

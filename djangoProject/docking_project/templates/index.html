@@ -1,848 +1,315 @@
-{% extends 'base                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 .html' %}
+{% extends 'base.html'%}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 .html' %}
 {% load static %}
 {% block content %}
-<section id="hero" class="hero section dark-background">
-
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-          <h1>Better Solutions For Your Business</h1>
-          <p>We are team of talented designers making websites with Bootstrap</p>
-          <div class="d-flex">
-            <a href="#about" class="btn-get-started">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
-        </div>
+<div data-w-id="af265470-c5db-c412-b0d5-ce79850cd08a" class="home-hero-scroll-wrap">
+  <section class="home-hero">
+      <div class="hero-blur-top no-pointer-events cc-home">
+          <div class="blur-shape blur-shape--magenta"></div>
       </div>
-    </div>
-
-  </section><!-- /Hero Section -->
-
-  <!-- Clients Section -->
-  <section id="clients" class="clients section light-background">
-
-    <div class="container" data-aos="zoom-in">
-
-      <div class="swiper init-swiper">
-        <script type="application/json" class="swiper-config">
-          {
-            "loop": true,
-            "speed": 600,
-            "autoplay": {
-              "delay": 5000
-            },
-            "slidesPerView": "auto",
-            "pagination": {
-              "el": ".swiper-pagination",
-              "type": "bullets",
-              "clickable": true
-            },
-            "breakpoints": {
-              "320": {
-                "slidesPerView": 2,
-                "spaceBetween": 40
-              },
-              "480": {
-                "slidesPerView": 3,
-                "spaceBetween": 60
-              },
-              "640": {
-                "slidesPerView": 4,
-                "spaceBetween": 80
-              },
-              "992": {
-                "slidesPerView": 5,
-                "spaceBetween": 120
-              },
-              "1200": {
-                "slidesPerView": 6,
-                "spaceBetween": 120
-              }
-            }
-          }
-        </script>
-        <div class="swiper-wrapper align-items-center">
-          <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-        </div>
+      <div class="hero-blur-bottom no-pointer-events cc-home">
+          <div class="blur-shape blur-shape--blue"></div>
       </div>
-
-    </div>
-
-  </section><!-- /Clients Section -->
-
-  <!-- About Section -->
-  <section id="about" class="about section">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>About Us</h2>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-
-      <div class="row gy-4">
-
-        <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.
-          </p>
-          <ul>
-            <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-            <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-            <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-          <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-        </div>
-
+      <div class="page-padding">
+          <div class="container">
+              <div class="home-hero-header">
+                  <h1 class="display-xl display-xl--hero">Redefining Drug Discovery.</h1>
+                  <div class="hero-subheading">
+                      <p class="text-size-xl">An innovative method for predicting ligands and visualizing viral interactions in 3D, addressing critical medical needs.</p>
+                  </div>
+              </div>
+          </div>
       </div>
-
-    </div>
-
-  </section><!-- /About Section -->
-
-  <!-- Why Us Section -->
-  <section id="why-us" class="section why-us light-background" data-builder="section">
-
-    <div class="container-fluid">
-
-      <div class="row gy-4">
-
-        <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
-
-          <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-            <h3><span>Eum ipsam laborum deleniti </span><strong>velit pariatur architecto aut nihil</strong></h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-            </p>
+      <div class="home-hero-anim">
+          <div class="ratio-square"><img src="https://assets-global.website-files.com/6356ba441271195b07290d97/6391f6401e0662850b1f0c81_hero-first-frame.webp" loading="eager" width="2400" height="2400" alt="" class="home-hero-startframe" />
+              <div data-preserve-aspect-ratio="none"
+                  data-is-ix2-target="1" class="home-hero-lottie" data-w-id="c28c087b-e1dc-85f8-b5d8-9cd97b9629af" data-animation-type="lottie" data-src="https://assets-global.website-files.com/6356ba441271195b07290d97/6391f87d4aef5c73553ab5e4_home-hero-final.json"
+                  data-loop="0" data-direction="1" data-autoplay="0" data-renderer="canvas" data-duration="0"></div>
+              <div class="home-hero-lottie-overlay"></div>
           </div>
-
-          <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="faq-item faq-active">
-
-              <h3><span>01</span> Non consectetur a erat nam at lectus urna duis?</h3>
-              <div class="faq-content">
-                <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div><!-- End Faq item-->
-
-            <div class="faq-item">
-              <h3><span>02</span> Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
-              <div class="faq-content">
-                <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div><!-- End Faq item-->
-
-            <div class="faq-item">
-              <h3><span>03</span> Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-              <div class="faq-content">
-                <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div><!-- End Faq item-->
-
-          </div>
-
-        </div>
-
-        <div class="col-lg-5 order-1 order-lg-2 why-us-img">
-          <img src="assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
-        </div>
       </div>
-
-    </div>
-
-  </section><!-- /Why Us Section -->
-
-  <!-- Skills Section -->
-  <section id="skills" class="skills section">
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="row">
-
-        <div class="col-lg-6 d-flex align-items-center">
-          <img src="assets/img/skills.png" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-6 pt-4 pt-lg-0 content">
-
-          <h3>Voluptatem dignissimos provident quasi corporis voluptas</h3>
-          <p class="fst-italic">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-
-          <div class="skills-content skills-animation">
-
-            <div class="progress">
-              <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Photoshop</span> <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-  </section><!-- /Skills Section -->
-
-  <!-- Services Section -->
-  <section id="services" class="services section light-background">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Services</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-
-      <div class="row gy-4">
-
-        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-item position-relative">
-            <div class="icon"><i class="bi bi-activity icon"></i></div>
-            <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-          </div>
-        </div><!-- End Service Item -->
-
-        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-item position-relative">
-            <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-            <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-          </div>
-        </div><!-- End Service Item -->
-
-        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-item position-relative">
-            <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-            <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-          </div>
-        </div><!-- End Service Item -->
-
-        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-          <div class="service-item position-relative">
-            <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-            <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div><!-- End Service Item -->
-
-      </div>
-
-    </div>
-
-  </section><!-- /Services Section -->
-
-  <!-- Call To Action Section -->
-  <section id="call-to-action" class="call-to-action section dark-background">
-
-    <img src="assets/img/cta-bg.jpg" alt="">
-
-    <div class="container">
-
-      <div class="row" data-aos="zoom-in" data-aos-delay="100">
-        <div class="col-xl-9 text-center text-xl-start">
-          <h3>Call To Action</h3>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-        <div class="col-xl-3 cta-btn-container text-center">
-          <a class="cta-btn align-middle" href="#">Call To Action</a>
-        </div>
-      </div>
-
-    </div>
-
-  </section><!-- /Call To Action Section -->
-
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio section">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Portfolio</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-
-      <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-        <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-          <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-app">App</li>
-          <li data-filter=".filter-product">Card</li>
-          <li data-filter=".filter-branding">Web</li>
-        </ul><!-- End Portfolio Filters -->
-
-        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-            <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>Lorem ipsum, dolor sit</p>
-              <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-            <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Product 1</h4>
-              <p>Lorem ipsum, dolor sit</p>
-              <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-            <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Branding 1</h4>
-              <p>Lorem ipsum, dolor sit</p>
-              <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-            <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>Lorem ipsum, dolor sit</p>
-              <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-            <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Product 2</h4>
-              <p>Lorem ipsum, dolor sit</p>
-              <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-            <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Branding 2</h4>
-              <p>Lorem ipsum, dolor sit</p>
-              <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-            <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>Lorem ipsum, dolor sit</p>
-              <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-            <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Product 3</h4>
-              <p>Lorem ipsum, dolor sit</p>
-              <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-            <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Branding 3</h4>
-              <p>Lorem ipsum, dolor sit</p>
-              <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-        </div><!-- End Portfolio Container -->
-
-      </div>
-
-    </div>
-
-  </section><!-- /Portfolio Section -->
-
-  <!-- Team Section -->
-  <section id="team" class="team section">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Team</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-
-      <div class="row gy-4">
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="team-member d-flex align-items-start">
-            <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-            <div class="member-info">
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-              <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter-x"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""> <i class="bi bi-linkedin"></i> </a>
-              </div>
-            </div>
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="team-member d-flex align-items-start">
-            <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-            <div class="member-info">
-              <h4>Sarah Jhonson</h4>
-              <span>Product Manager</span>
-              <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter-x"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""> <i class="bi bi-linkedin"></i> </a>
-              </div>
-            </div>
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="team-member d-flex align-items-start">
-            <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-            <div class="member-info">
-              <h4>William Anderson</h4>
-              <span>CTO</span>
-              <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter-x"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""> <i class="bi bi-linkedin"></i> </a>
-              </div>
-            </div>
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="team-member d-flex align-items-start">
-            <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-            <div class="member-info">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter-x"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""> <i class="bi bi-linkedin"></i> </a>
-              </div>
-            </div>
-          </div>
-        </div><!-- End Team Member -->
-
-      </div>
-
-    </div>
-
-  </section><!-- /Team Section -->
-
-  <!-- Pricing Section -->
-  <section id="pricing" class="pricing section light-background">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Pricing</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-
-      <div class="row gy-4">
-
-        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="pricing-item">
-            <h3>Free Plan</h3>
-            <h4><sup>$</sup>0<span> / month</span></h4>
-            <ul>
-              <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-              <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-              <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-              <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-              <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-            </ul>
-            <a href="#" class="buy-btn">Buy Now</a>
-          </div>
-        </div><!-- End Pricing Item -->
-
-        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="pricing-item featured">
-            <h3>Business Plan</h3>
-            <h4><sup>$</sup>29<span> / month</span></h4>
-            <ul>
-              <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-              <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-              <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-              <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-              <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-            </ul>
-            <a href="#" class="buy-btn">Buy Now</a>
-          </div>
-        </div><!-- End Pricing Item -->
-
-        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-          <div class="pricing-item">
-            <h3>Developer Plan</h3>
-            <h4><sup>$</sup>49<span> / month</span></h4>
-            <ul>
-              <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-              <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-              <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-              <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-              <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-            </ul>
-            <a href="#" class="buy-btn">Buy Now</a>
-          </div>
-        </div><!-- End Pricing Item -->
-
-      </div>
-
-    </div>
-
-  </section><!-- /Pricing Section -->
-
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="testimonials section">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Testimonials</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-    </div><!-- End Section Title -->
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="swiper init-swiper">
-        <script type="application/json" class="swiper-config">
-          {
-            "loop": true,
-            "speed": 600,
-            "autoplay": {
-              "delay": 5000
-            },
-            "slidesPerView": "auto",
-            "pagination": {
-              "el": ".swiper-pagination",
-              "type": "bullets",
-              "clickable": true
-            }
-          }
-        </script>
-        <div class="swiper-wrapper">
-
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
+  </section>
+</div>
+<a href="#cta" class="cta-button">Try our Solution</a>
+  <!-- Votre contenu reste ici -->
+  <div id="cta">
+      <!-- Section de contenu pour le bouton Call to Action -->
+  </div>
+<div class="nav-dark nav-dark--home">
+  <section class="section section--dark relative cc-home-intro">
+      <div class="page-padding">
+          <div class="container">
+              <div class="label-medium text-color-gray-30">About us</div>
+              <div class="spacing-xl"></div>
+              <p class="heading-m">
+                  Medicoverse offers a <span class="text-gradient-blue"><strong>virtual preclinical environment</strong></span> that delivers
+                  <span class="text-gradient-blue"><strong>cost savings</strong></span> and
+                  <span class="text-gradient-blue"><strong>accelerated validation</strong></span>.
+                  Our focus is on <span class="text-gradient-blue"><strong>drug generation and virus-drug interaction simulation</strong></span>.
               </p>
-            </div>
-          </div><!-- End testimonial item -->
-
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-              <h3>Sara Wilsson</h3>
-              <h4>Designer</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
-            </div>
-          </div><!-- End testimonial item -->
-
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
-            </div>
-          </div><!-- End testimonial item -->
-
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
-            </div>
-          </div><!-- End testimonial item -->
-
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
-            </div>
-          </div><!-- End testimonial item -->
-
-        </div>
-        <div class="swiper-pagination"></div>
+          <div class="spacing-xl"></div>
+          <p class="heading-m">
+              We specialize in <span class="text-gradient-purple"><strong>virtual environments</strong></span> and
+              <span class="text-gradient-purple"><strong>advanced protein and ligand modeling</strong></span> to
+              <strong>advance drug discovery.</strong>
+          </p>   
       </div>
-
-    </div>
-
-  </section><!-- /Testimonials Section -->
-
-  <!-- Faq 2 Section -->
-  <section id="faq-2" class="faq-2 section light-background">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Frequently Asked Questions</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-
-      <div class="row justify-content-center">
-
-        <div class="col-lg-10">
-
-          <div class="faq-container">
-
-            <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
-              <i class="faq-icon bi bi-question-circle"></i>
-              <h3>Non consectetur a erat nam at lectus urna duis?</h3>
-              <div class="faq-content">
-                <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+</div>
+</section>
+<div data-w-id="99c830e5-7d4f-d6f0-4d09-b29503acb270" class="home-prom-scroll-wrap">
+  <div class="sticky-wrap">
+      <section class="home-prom-section text-color-white">
+          <div class="home-prom-anim-wrap">
+              <div class="ratio-square">
+                  <div data-preserve-aspect-ratio="none" data-is-ix2-target="1" class="home-prom-lottie" data-w-id="ee98a776-e530-cb4f-831e-b98e7b40419c" data-animation-type="lottie" data-src="https://assets-global.website-files.com/6356ba441271195b07290d97/63849ff615bbb6ecffa29b0d_home-prom.json"
+                      data-loop="0" data-direction="1" data-autoplay="0" data-renderer="canvas" data-default-duration="5.805805569330502" data-duration="0"></div>
               </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div><!-- End Faq item-->
-
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-              <i class="faq-icon bi bi-question-circle"></i>
-              <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
-              <div class="faq-content">
-                <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div><!-- End Faq item-->
-
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-              <i class="faq-icon bi bi-question-circle"></i>
-              <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-              <div class="faq-content">
-                <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div><!-- End Faq item-->
-
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-              <i class="faq-icon bi bi-question-circle"></i>
-              <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-              <div class="faq-content">
-                <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div><!-- End Faq item-->
-
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-              <i class="faq-icon bi bi-question-circle"></i>
-              <h3>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h3>
-              <div class="faq-content">
-                <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div><!-- End Faq item-->
-
+              <div class="prom-anim-overlay"></div>
           </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section><!-- /Faq 2 Section -->
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact section">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Contact</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-    </div><!-- End Section Title -->
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="row gy-4">
-
-        <div class="col-lg-5">
-
-          <div class="info-wrap">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+          <div class="page-padding relative">
+              <div class="container">
+                  <div class="home-prom-content">
+                      <div class="label-medium text-color-gray-30">Pipeline</div>
+                      <div class="spacing-xs"></div>
+                      <div class="home-prom-headline-wrap">
+                          <div class="home-prom-headline-1">
+                              <div>
+                                  <h2 class="heading-xl">Build Ligands</h2>
+                                  <div class="spacing-xs"></div>
+                                  <p class="text-size-l text-color-gray-30">
+                                      Generate ligands from amino acid sequences, obtain SMILES chains, and explore chemical properties for drug development.
+                                  </p>
+                              </div>
+                          </div>
+                          <div class="home-prom-headline-3">
+                              <div>
+                                  <h2 class="heading-xl">Build Proteins</h2>
+                                  <div class="spacing-xs"></div>
+                                  <p class="text-size-l text-color-gray-30">
+                                      Generate viral proteins from amino acid sequences, visualize 3D structures, and simulate ligand binding to optimize drug targeting.
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="prom-scroll-indicator-wrap">
+                          <div href="#small-molecules" class="prom-scroll-indicator-item">
+                              <div class="scroll-indicator-line">
+                                  <div class="scroll-indicator-active cc-prom2"></div>
+                              </div>
+                          </div>
+                          <div href="#unlocking" class="prom-scroll-indicator-item">
+                              <div class="scroll-indicator-line">
+                                  <div class="scroll-indicator-active cc-prom3"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>info@example.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-        </div>
-
-        <div class="col-lg-7">
-          <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
-
-              <div class="col-md-6">
-                <label for="name-field" class="pb-2">Your Name</label>
-                <input type="text" name="name" id="name-field" class="form-control" required="">
+      </section>
+  </div>
+</div>
+</div>
+<div data-w-id="7e993d21-7969-3fec-b160-990c9917964d" class="home-pipeline-scrollwrap">
+<div class="sticky-wrap">
+<section class="section section--home-pipeline">
+  <div class="page-padding">
+      <div class="container">
+          <h2 class="label-medium text-color-gray-70">Objective | Goal</h2>
+          <div class="spacing-xs"></div>
+          <h3 class="heading-m">
+              Our goal is to <strong class="text-gradient-blue">identify virus ligands and proteins</strong> while <strong class="text-gradient-blue">reducing time</strong> to <strong class="text-gradient-blue">accelerate disease inhibition.</strong>
+          </h3>
+          <div class="home-pipeline-content">
+              <div class="home-pipeline-tab-wrap">
+                  <div href="#inhibiting-tumor" class="home-pipeline-tab home-pipeline-tab--1"><img src="C:\Users\minya\Desktop\MedicoVerse\prime-time.png" width="50" height="50" loading="lazy" alt="" class="home-pipeline-icon" />
+                      <div class="text-size-xl cc-home-pipeline-label">Cut time by up to 50%</div>
+                      <div class="home-pipeline-indicator">
+                          <div class="home-pipeline-indicator-active cc-1"></div>
+                      </div>
+                  </div>
+                  <div href="#inhibiting-metastasis" class="home-pipeline-tab home-pipeline-tab--2"><img src="C:\Users\minya\Desktop\MedicoVerse\piece-de-monnaie.png" width="50" height="50" loading="lazy" alt="" class="home-pipeline-icon" />
+                      <div class="text-size-xl cc-home-pipeline-label">Cut cost by up to 50%</div>
+                      <div class="home-pipeline-indicator">
+                          <div class="home-pipeline-indicator-active cc-2"></div>
+                      </div>
+                  </div>
               </div>
-
-              <div class="col-md-6">
-                <label for="email-field" class="pb-2">Your Email</label>
-                <input type="email" class="form-control" name="email" id="email-field" required="">
+              <div class="home-pipeline-description-wrap">
+                  <div class="home-pipeline-description-1"></div>
+                  <div class="home-pipeline-description-2"></div>
               </div>
-
-              <div class="col-md-12">
-                <label for="subject-field" class="pb-2">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject-field" required="">
-              </div>
-
-              <div class="col-md-12">
-                <label for="message-field" class="pb-2">Message</label>
-                <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-              </div>
-
-              <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                <button type="submit">Send Message</button>
-              </div>
-
-            </div>
-          </form>
-        </div><!-- End Contact Form -->
-
+          </div>
       </div>
-
-    </div>
-
-  </section><!-- /Contact Section -->
+  </div>
+  <!-- image -->
+  <div class="home-pipeline-anim">
+      <div class="home-pipeline-anim-overlay"></div>
+      <div class="ratio-16-9">
+          <div data-preserve-aspect-ratio="none" data-is-ix2-target="1" class="home-pipeline-lottie" data-w-id="6f7c42cb-bd81-6114-f5d3-a94e517a84a4" data-animation-type="lottie" data-src="https://assets-global.website-files.com/6356ba441271195b07290d97/6384b9a4a8f1b146d2881006_home-cell-shrink.json"
+              data-loop="0" data-direction="1" data-autoplay="0" data-renderer="canvas" data-default-duration="3.870537046220335" data-duration="0"></div>
+      </div>
+  </div>
+</section>
+</div>
+</div>
+<div data-w-id="38aeebd7-7bb7-04d9-72f3-680fc1f5d9e2" class="applications-scroll-wrap">
+<div class="sticky-wrap">
+<section>
+  <div class="page-padding">
+      <div class="container">
+          <div class="applications-inner">
+              <h2 class="label-medium text-color-gray-70">statistic</h2>
+              <div class="spacing-xs"></div>
+              <h3 class="heading-m">
+                  Our platform accelerates drug development. Below are <strong class="text-gradient-blue">time savings</strong> for each disease, highlighting our <strong class="text-gradient-blue">impact.</strong>
+              </h3>
+              <div class="applications-wrap">
+                  <div id="w-node-a43ed597-78e5-45a8-fdd6-bc018496f30d-72290d98" class="applications-img-wrap"><img src="https://assets-global.website-files.com/6356ba441271195b07290d97/636233eb61cb9cdcbd7c6fa4_heart.jpg" loading="lazy" width="626" height="626" alt="" srcset="https://assets-global.website-files.com/6356ba441271195b07290d97/636233eb61cb9cdcbd7c6fa4_heart-p-500.jpg 500w, https://assets-global.website-files.com/6356ba441271195b07290d97/636233eb61cb9cdcbd7c6fa4_heart-p-800.jpg 800w, https://assets-global.website-files.com/6356ba441271195b07290d97/636233eb61cb9cdcbd7c6fa4_heart.jpg 1252w"
+                          sizes="(max-width: 767px) 100vw, 46vw" class="applications-img applications-img--1" /><img src="https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c81a3d2cf5351c8c2_covid.jpg" loading="lazy" width="626"
+                          height="626" alt="" srcset="https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c81a3d2cf5351c8c2_covid-p-500.jpg 500w, https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c81a3d2cf5351c8c2_covid-p-800.jpg 800w, https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c81a3d2cf5351c8c2_covid.jpg 1252w"
+                          sizes="(max-width: 767px) 100vw, 46vw" class="applications-img applications-img--2" /><img src="https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c8ce7c6d21dc28aa1_brain.jpg" loading="lazy" width="626"
+                          height="626" alt="" srcset="https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c8ce7c6d21dc28aa1_brain-p-500.jpg 500w, https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c8ce7c6d21dc28aa1_brain-p-800.jpg 800w, https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c8ce7c6d21dc28aa1_brain.jpg 1252w"
+                          sizes="(max-width: 767px) 100vw, 46vw" class="applications-img applications-img--3" /><img src="https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c3226175bef91b6f4_liver.jpg" loading="lazy" width="626"
+                          height="626" alt="" srcset="https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c3226175bef91b6f4_liver-p-500.jpg 500w, https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c3226175bef91b6f4_liver-p-800.jpg 800w, https://assets-global.website-files.com/6356ba441271195b07290d97/637c9e5c3226175bef91b6f4_liver.jpg 1252w"
+                          sizes="(max-width: 767px) 100vw, 46vw" class="applications-img applications-img--4" /></div>
+                  <div id="w-node-_2525d23d-bade-ef56-d2e6-b32cb1a9338c-72290d98" class="applications-content">
+                      <div href="#cardiovascular" class="applications-item applications-item--1">
+                          <div class="scroll-indicator-line scroll-indicator-line--apps">
+                              <div class="scroll-indicator-active cc-apps1"></div>
+                          </div>
+                          <h4 class="heading-xs font-weight-medium">Cardiovascular Diseases 40%</h4>
+                      </div>
+                      <div href="#infectious" class="applications-item applications-item--2">
+                          <div class="scroll-indicator-line scroll-indicator-line--apps">
+                              <div class="scroll-indicator-active cc-apps2"></div>
+                          </div>
+                          <h4 class="heading-xs font-weight-medium">Infectious Diseases 30% </h4>
+                      </div>
+                      <div href="#neurodegenerative" class="applications-item applications-item--3">
+                          <div class="scroll-indicator-line scroll-indicator-line--apps">
+                              <div class="scroll-indicator-active cc-apps3"></div>
+                          </div>
+                          <h4 class="heading-xs font-weight-medium">Neurodegenerative Diseases 25% </h4>
+                      </div>
+                      <div href="#further-diseases" class="applications-item applications-item--4">
+                          <div class="scroll-indicator-line scroll-indicator-line--apps">
+                              <div class="scroll-indicator-active cc-apps4"></div>
+                          </div>
+                          <h4 class="heading-xs font-weight-medium">Further Diseases  20%</h4>
+                      </div>
+                  </div>
+              </div>
+              <div class="home-applications-mobile">
+                  <div class="pipeline-areas-wrap">
+                      <div id="w-node-_542d9c9d-4fa5-16ec-82dd-2a4a305d6e16-305d6e15" class="pipeline-areas-card"><img src="https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf64d9ba82dfbb71b3f_heart-white.jpg" loading="lazy" width="520" height="520" alt="" srcset="https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf64d9ba82dfbb71b3f_heart-white-p-500.jpg 500w, https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf64d9ba82dfbb71b3f_heart-white-p-800.jpg 800w, https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf64d9ba82dfbb71b3f_heart-white.jpg 1040w"
+                              sizes="(max-width: 479px) 87vw, (max-width: 767px) 43vw, (max-width: 991px) 46vw, 45vw" class="pipeline-areas-img" />
+                          <h4 class="heading-xs text-color-gray-70">Cardiovascular Diseases</h4>
+                      </div>
+                      <div id="w-node-_542d9c9d-4fa5-16ec-82dd-2a4a305d6e1a-305d6e15" class="pipeline-areas-card"><img src="https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf768c1aeeed9d239d0_covid-white.jpg" loading="lazy" width="520" height="520" alt="" srcset="https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf768c1aeeed9d239d0_covid-white-p-500.jpg 500w, https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf768c1aeeed9d239d0_covid-white-p-800.jpg 800w, https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf768c1aeeed9d239d0_covid-white.jpg 1040w"
+                              sizes="(max-width: 479px) 87vw, (max-width: 767px) 43vw, (max-width: 991px) 46vw, 45vw" class="pipeline-areas-img" />
+                          <h4 class="heading-xs text-color-gray-70">Infectious Diseases</h4>
+                      </div>
+                      <div id="w-node-_542d9c9d-4fa5-16ec-82dd-2a4a305d6e1e-305d6e15" class="pipeline-areas-card"><img src="https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf6cf822530b1e3088d_brain-white.jpg" loading="lazy" width="520" height="520" alt="" srcset="https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf6cf822530b1e3088d_brain-white-p-500.jpg 500w, https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf6cf822530b1e3088d_brain-white-p-800.jpg 800w, https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf6cf822530b1e3088d_brain-white.jpg 1040w"
+                              sizes="(max-width: 479px) 87vw, (max-width: 767px) 43vw, (max-width: 991px) 46vw, 45vw" class="pipeline-areas-img" />
+                          <h4 class="heading-xs text-color-gray-70">Neurodegenerative Disease</h4>
+                      </div>
+                      <div id="w-node-_542d9c9d-4fa5-16ec-82dd-2a4a305d6e22-305d6e15" class="pipeline-areas-card"><img src="https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf6839d6b1424b7b6f4_liver-white.jpg" loading="lazy" width="520" height="520" alt="" srcset="https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf6839d6b1424b7b6f4_liver-white-p-500.jpg 500w, https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf6839d6b1424b7b6f4_liver-white-p-800.jpg 800w, https://assets-global.website-files.com/6356ba441271195b07290d97/637f5cf6839d6b1424b7b6f4_liver-white.jpg 1040w"
+                              sizes="(max-width: 479px) 87vw, (max-width: 767px) 43vw, (max-width: 991px) 46vw, 45vw" class="pipeline-areas-img" />
+                          <h4 class="heading-xs text-color-gray-70">Further Diseases</h4>
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+</section>
+</div>
+</div>
+<section class="section">
+<div class="page-padding">
+<div class="container">
+  <div class="news-header-row">
+      <h2 class="heading-l">Latest News</h2>
+      <a href="/news" class="text-btn hidden w-inline-block">
+          <div>See All News</div>
+          <div class="text-btn-icon">
+              <div class="text-btn-icon-bg w-embed"><svg width="100%" height="100%" viewBox="0 0 75 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M64.7475 21.4913L64.7505 21.4984L64.7537 21.5053L73.3837 40.1149C74.0382 41.5264 73.6824 43.2007 72.5102 44.224L57.0572 57.7145L57.0514 57.7196L57.0458 57.7248L42.0139 71.683C40.8737 72.7418 39.1714 72.9207 37.836 72.1221L20.2305 61.5942L20.2239 61.5903L20.2172 61.5866L2.29701 51.6037C0.937734 50.8464 0.241549 49.2828 0.588358 47.766L5.16056 27.7688L5.16227 27.7613L5.16375 27.7538L9.12041 7.62582C9.42053 6.09908 10.6925 4.95377 12.2423 4.81488L32.6736 2.98385L32.6812 2.98316L32.6888 2.98224L53.0544 0.525358C54.5991 0.338999 56.0814 1.19481 56.6924 2.6258L64.7475 21.4913Z" stroke="url(#radial-fill)" fill="none"/>
+</svg></div>
+              <div class="text-btn-icon-arrow w-embed"><svg width="100%" height="100%" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.3329 18.6696L12.9329 17.2196L16.4829 13.6696L4.33289 13.6696V11.6696L16.4829 11.6696L12.9329 8.11956L14.3329 6.66956L20.3329 12.6696L14.3329 18.6696Z" fill="currentColor"/>
+</svg></div>
+          </div>
+      </a>
+  </div>
+  <div class="news-cards-wrap">
+      <div class="news-cards-scroll-wrap w-dyn-list">
+          <div role="list" class="news-cards-list hide-scrollbar w-dyn-items">
+              <div role="listitem" class="news-cards-item w-dyn-item">
+                  <a href="/news/prosion-therapeutics-named-in-sifted-as-one-of-the-startups-to-watch-in-2024" class="news-card w-inline-block">
+                      <div class="news-card-img-wrap">
+                          <img loading="lazy" alt="" src="C:\Users\minya\Desktop\MedicoVerse\new1.jpg" sizes="(max-width: 479px) 260px, (max-width: 767px) 94vw, 30vw" 
+                          srcset="C:\Users\minya\Desktop\MedicoVerse\new1.jpg 500w, C:\Users\minya\Desktop\MedicoVerse\new1.jpg 1080w, C:\Users\minya\Desktop\MedicoVerse\new1.jpg 1600w, C:\Users\minya\Desktop\MedicoVerse\new1.jpg 1604w"
+                              class="news-card-img" /></div>
+                      <div class="news-card-content">
+                          <div class="label-small text-color-gray-50">Jul 23, 2024 | 10 min read</div>
+                          <div class="spacing-xs"></div>
+                          <div class="heading-xxs">Restoring color vision with gene therapy </div>
+                          <div class="spacing-s"></div>
+                          <div class="news-card-read-more">
+                              <div class="font-weight-medium">Read more</div>
+                              <div class="svg-embed w-embed"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 18.1182L12.6 16.6682L16.15 13.1182L4 13.1182V11.1182L16.15 11.1182L12.6 7.56816L14 6.11816L20 12.1182L14 18.1182Z" fill="currentColor"/>
+</svg></div>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              <div role="listitem" class="news-cards-item w-dyn-item">
+                  <a href="/news/prosion-therapeutics-winner-of-falling-walls-science-breakthrough-of-the-year-2022" class="news-card w-inline-block">
+                      <div class="news-card-img-wrap">
+                          <img loading="lazy" alt="" src="C:\Users\minya\Desktop\MedicoVerse\new2.jpg" sizes="(max-width: 479px) 260px, (max-width: 767px) 94vw, 30vw" 
+                          srcset="C:\Users\minya\Desktop\MedicoVerse\new2.jpg 500w, C:\Users\minya\Desktop\MedicoVerse\new2.jpg 800w, C:\Users\minya\Desktop\MedicoVerse\new2.jpg 1080w, C:\Users\minya\Desktop\MedicoVerse\new2.jpg 1600w, C:\Users\minya\Desktop\MedicoVerse\new2.jpg 1604w"
+                              class="news-card-img" /></div>
+                      <div class="news-card-content">
+                          <div class="label-small text-color-gray-50">Jul 22, 2024 | 5 min read</div>
+                          <div class="spacing-xs"></div>
+                          <div class="heading-xxs">Circular RNA: a new era in therapeutics</div>
+                          <div class="spacing-s"></div>
+                          <div class="news-card-read-more">
+                              <div class="font-weight-medium">Read more</div>
+                              <div class="svg-embed w-embed"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 18.1182L12.6 16.6682L16.15 13.1182L4 13.1182V11.1182L16.15 11.1182L12.6 7.56816L14 6.11816L20 12.1182L14 18.1182Z" fill="currentColor"/>
+</svg></div>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              <div role="listitem" class="news-cards-item w-dyn-item">
+                  <a href="/news/prosion-secures-additional-funding-from-freigeist" class="news-card w-inline-block">
+                      <div class="news-card-img-wrap">
+                          <img loading="lazy" alt="" src="C:\Users\minya\Desktop\MedicoVerse\new3.jpg" sizes="(max-width: 479px) 260px, (max-width: 767px) 94vw, 30vw" 
+                          srcset="C:\Users\minya\Desktop\MedicoVerse\new3.jpg 500w, C:\Users\minya\Desktop\MedicoVerse\new3.jpg 800w, C:\Users\minya\Desktop\MedicoVerse\new3.jpg 1080w, C:\Users\minya\Desktop\MedicoVerse\new3.jpg 1600w, C:\Users\minya\Desktop\MedicoVerse\new3.jpg 1604w"
+                              class="news-card-img" /></div>
+                      <div class="news-card-content">
+                          <div class="label-small text-color-gray-50">Jul 19, 2024 | 4 min read</div>
+                          <div class="spacing-xs"></div>
+                          <div class="heading-xxs">How a mother's immune system can shape her baby's brain</div>
+                          <div class="spacing-s"></div>
+                          <div class="news-card-read-more">
+                              <div class="font-weight-medium">Read more</div>
+                              <div class="svg-embed w-embed"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 18.1182L12.6 16.6682L16.15 13.1182L4 13.1182V11.1182L16.15 11.1182L12.6 7.56816L14 6.11816L20 12.1182L14 18.1182Z" fill="currentColor"/>
+</svg></div>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</section>
   {% endblock %}

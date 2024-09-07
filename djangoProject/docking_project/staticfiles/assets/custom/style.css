@@ -1,0 +1,1216 @@
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Set a percentage width */
+    max-width: 500px; /* Maximum width for larger screens */
+    background-color: #fff;
+    padding: 0; /* Remove padding to give more space for the viewer */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    display: none; /* Initially hidden */
+    text-align: center; /* Center-align content inside the popup */
+    overflow: hidden; /* Ensure no content overflows the popup */
+}
+
+#viewer {
+    width: 100%; /* Make the viewer take up the full width of the popup */
+    height: 400px; /* Fixed height */
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd; /* Separate viewer from the button */
+}
+
+#popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Popup title */
+#popup h1 {
+    margin: 0;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+    text-align: center;
+}
+
+/* Next button */
+#popup-close-button {
+    display: block;
+    width: 25%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none; /* Initially hidden */
+}
+
+/* Show popup */
+#popup.show, #overlay.show {
+    display: block;
+}
+
+
+#overlay2 {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.7);
+z-index: 1000;
+}
+
+#popup2 {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 90%;
+background: #f7f7f7;
+border-radius: 10px;
+padding: 20px;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+z-index: 1001;
+overflow-y: auto;
+max-height: 80vh;
+text-align: left;
+}
+
+/* Title and Section Titles */
+.title {
+text-align: center;
+font-size: 28px;
+color: #000;
+font-weight: bold;
+}
+
+.section-title {
+font-size: 20px;
+color: #1E3A8A; /* Dark blue color */
+font-weight: bold;
+margin-top: 20px;
+}
+
+/* Table Styling */
+.details-table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+.details-table th, .details-table td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+.details-table th {
+background-color: #f2f2f2;
+font-weight: bold;
+}
+
+.details-table tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.details-table tr:hover {
+background-color: #f1f1f1;
+}
+
+/* Visualization Container */
+#visualization-container {
+width: 100%; /* Smaller width for visualization */
+margin: 20px auto; /* Center the container */
+padding: 10px;
+border: 1px solid #ddd;
+background-color: #f9f9f9;
+}
+
+/* Center the Submit Button */
+#popup-close-button {
+display: block;
+margin: 20px auto; /* Center the button */
+padding: 10px 20px;
+background-color: #1E3A8A; /* Dark blue color */
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+text-align: center;
+}
+
+#popup-close-button:hover {
+background-color: #1746A3; /* Darker blue on hover */
+}
+
+/* Loading Indicator */
+#loading-indicator {
+display: none;
+text-align: center;
+margin-top: 10px;
+font-size: 16px;
+color: #555;
+}
+
+/* Modal Close Button */
+#popup-close {
+position: absolute;
+top: 10px;
+right: 10px;
+cursor: pointer;
+font-size: 24px;
+color: #555;
+}
+
+#popup-close:hover {
+color: #000;
+}
+
+
+h1 {
+font-size: 40px; /* Taille de la police du titre */
+font-family: 'Arial', sans-serif; /* Police du titre */
+margin-bottom: 40px; /* Espacement en bas du titre */
+font-weight: bold; /* Style en gras */
+}
+
+/* Style pour le groupe de saisie */
+.input-group {
+
+margin-bottom: 30px; /* Espacement en bas du groupe de saisie, réduit pour rapprocher les éléments */
+text-align: left; /* Alignement du texte à gauche */
+}
+
+/* Style pour les labels */
+.input-group label {
+display: block; /* Affichage en bloc */
+margin-bottom: 10px; /* Espacement en bas du label, réduit pour rapprocher du champ de saisie */
+font-size: 15px; /* Taille de la police du label augmentée */
+font-weight: normal;
+}
+.input-group textarea {
+    width: calc(70% - 12px); /* Largeur calculée pour le champ de saisie */
+    padding: 10px; /* Espacement intérieur augmenté */
+    border: 1px solid #b0d4f4; /* Bordure du champ de saisie */
+    border-radius: 5px; /* Coins arrondis */
+    font-size:10px; /* Taille de la police du champ de saisie augmentée */
+    background-color: #deeefb; /* Couleur de fond */
+    margin-bottom: 20px; /* Espacement en bas du champ de saisie, réduit pour rapprocher le bouton */
+    }
+/* Style pour les champs de saisie */
+.input-group input[type="text"] {
+width: calc(70% - 12px); /* Largeur calculée pour le champ de saisie */
+padding: 10px; /* Espacement intérieur augmenté */
+border: 1px solid #b0d4f4; /* Bordure du champ de saisie */
+border-radius: 5px; /* Coins arrondis */
+font-size:10px; /* Taille de la police du champ de saisie augmentée */
+background-color: #deeefb; /* Couleur de fond */
+margin-bottom: 20px; /* Espacement en bas du champ de saisie, réduit pour rapprocher le bouton */
+}
+
+/* Style pour le bouton */
+button {
+    background: linear-gradient(to right, #ea0be3, #8e2de2); /* Gradient background */
+    border: 2px solid white; /* White border */
+    border-radius: 20px; /* Rounded corners */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+    padding: 10px; /* Padding */
+    width: 150px; /* Fixed width */
+    text-align: center; /* Centered text */
+    margin-left: 100px; /* Left margin */
+    margin-top: 15px; /* Top margin */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth background and transform transition */
+}
+
+button:hover {
+    background: linear-gradient(to right, #8e2de2, #ea0be3); /* Reversed gradient background */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+button:active {
+    transform: scale(0.95); /* Slightly shrink the button */
+    background: linear-gradient(to right, #d100d1, #7a0eb1); /* Darker gradient for click effect */
+}
+
+
+button {
+    background: linear-gradient(to right, #ea0be3, #8e2de2); /* Gradient background */
+    border: 2px solid white; /* White border */
+    border-radius: 20px; /* Rounded corners */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+    padding: 10px; /* Padding */
+    width: 150px; /* Fixed width */
+    text-align: center; /* Centered text */
+    margin-left: 100px; /* Left margin */
+    margin-top: 15px; /* Top margin */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth background and transform transition */
+}
+
+button:hover {
+    background: linear-gradient(to right, #8e2de2, #ea0be3); /* Reversed gradient background */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+button:active {
+    transform: scale(0.95); /* Slightly shrink the button */
+    background: linear-gradient(to right, #d100d1, #7a0eb1); /* Darker gradient for click effect */
+}
+
+
+    
+/*fin-step11*/
+
+    /* step22 */
+    .section.relative {
+position: relative;
+padding: 20px 0;
+background-color: #f9f9f9;
+}
+
+.blur-right {
+position: absolute;
+right: 0;
+top: 0;
+width: 100px;
+height: 100px;
+background: #00bfa6;
+filter: blur(50px);
+}
+
+.blur-shape.blur-shape--teal {
+background: #00bfa6;
+}
+
+.page-padding {
+padding: 0 20px;
+}
+
+.container {
+max-width: 1200px;
+margin: auto;
+}
+
+
+
+.input1-group {
+margin-bottom: 15px;
+text-align: left;
+}
+
+.input1-group label {
+display: block;
+margin-bottom: 30px;
+font-size: 15px;
+margin-top: 15px;
+font-weight: normal;
+
+}
+
+.input1-group input[type="text"] {
+width: calc(70% - 12px); /* Largeur calculée pour le champ de saisie */
+padding: 10px; /* Espacement intérieur augmenté */
+border: 1px solid #b0d4f4; /* Bordure du champ de saisie */
+border-radius: 5px; /* Coins arrondis */
+font-size:10px; /* Taille de la police du champ de saisie augmentée */
+background-color: #deeefb; /* Couleur de fond */
+margin-bottom: 20px; /* Espacement en bas du champ de saisie, réduit pour rapprocher le bouton */
+}
+
+button {
+background: linear-gradient(to right, #ea0be3, #8e2de2); /* Dégradé de couleurs */
+border: 2px solid white; /* Contour blanc */
+border-radius: 20px; /* Rendre le bouton un peu rond */
+color: white;
+cursor: pointer;
+font-size: 16px;
+padding: 10px; /* Taille de l'espace intérieur du bouton */
+width: 150px; /* Largeur fixe pour le bouton */
+text-align: center; /* Centrer le texte à l'intérieur du bouton */
+margin-left: 100px;
+margin-top: 15px;
+transition: background 0.3s ease;
+
+}
+
+
+
+.pipeline-cell-img {
+max-width: 100%;
+height: auto;
+border-radius: 10px;
+}
+
+.title {
+font-size: 40px; /* Taille de police grande */
+font-weight: bold; /* Texte en gras */
+color: #597098;
+margin-bottom: 20px;
+text-align: left;
+position: relative;
+top: -20px;
+white-space: nowrap;
+flex: 1; /* Permet au titre de prendre plus d'espace disponible */
+}
+/*fin step22*/
+
+/*step33:yosra*/
+
+.yosra {
+font-size: 50px;
+font-family: 'Arial', sans-serif; /* Police du titre */
+margin-bottom: 10px;
+font-weight: bold;
+padding-top: 500;
+
+}
+h11{
+
+font-size: 15px;
+font-family: 'Arial', sans-serif; /* Police du titre */
+
+}
+
+    .visualization {
+        width: 100%;
+        height: 300px;
+        background-color: #072d54;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 45px;
+        padding-top: 10px;
+        
+    }
+
+    .description {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    
+
+    buttonn {
+background: linear-gradient(to right, #ea0be3, #8e2de2); /* Dégradé de couleur allant de #ea0be3 à #8e2de2 de gauche à droite */
+border: #fff; /* Aucune bordure pour le bouton */
+border-radius: 20px; /* Bordures arrondies avec un rayon de 20 pixels */
+color: white; /* Couleur du texte à l'intérieur du bouton */
+cursor: pointer; /* Changer le curseur en pointeur lorsque l'on passe la souris sur le bouton */
+font-size: 16px; /* Taille de la police du texte du bouton */
+padding: 10px 20px; /* Espacement intérieur de 10 pixels en haut et en bas, et 20 pixels à gauche et à droite */
+text-align: center; /* Centrer le texte à l'intérieur du bouton */
+display: block; /* Afficher le bouton comme un bloc, prenant toute la largeur disponible */
+margin: 20px 20px 40px 0px; /* Centrer le bouton horizontalement en mettant des marges automatiques à gauche et à droite */
+transition: background 0.3s ease; /* Transition douce pour le changement de couleur de fond lors du survol, durant 0.3 secondes */
+padding: 10px; /* Taille de l'espace intérieur du bouton */
+width: 150px; /* Largeur fixe pour le bouton */
+text-align: center; /* Centrer le texte à l'intérieur du bouton */
+margin-left: 10px;
+margin-top: 20px;
+
+}
+button1 {
+background: linear-gradient(to right, #faf9fa, #faf9fa); /* Dégradé de couleur de fond */
+border: 2px solid #ea0be3; /* Contour rose de 2 pixels de large */
+border-radius: 20px; /* Bordures arrondies avec un rayon de 20 pixels */
+color: #ea0be3; /* Couleur du texte à l'intérieur du bouton */
+cursor: pointer; /* Changer le curseur en pointeur lorsque l'on passe la souris sur le bouton */
+font-size: 16px; /* Taille de la police du texte du bouton */
+padding: 10px 20px; /* Espacement intérieur de 10 pixels en haut et en bas, et 20 pixels à gauche et à droite */
+text-align: center; /* Centrer le texte à l'intérieur du bouton */
+display: block; /* Afficher le bouton comme un bloc */
+margin: 20px 0 0px 20px; /* Marges pour positionner le bouton */
+transition: background 0.3s ease, border-color 0.3s ease; /* Transition douce pour les changements de couleur de fond et de bordure */
+width: 170px; /* Largeur fixe pour le bouton */
+transform: translateX(150px); /* Déplace le bouton de 350 pixels vers la droite */
+margin-top: -420px; /* Ajustez cette valeur si nécessaire pour le positionnement vertical */
+}
+
+button1:hover {
+background: #faf9fa; /* Couleur de fond lors du survol */
+border-color: #65317b; /* Couleur de contour modifiée lors du survol */
+}
+
+
+
+
+
+
+/*fin step33*/
+
+
+
+*:focus {
+    outline: none;
+}
+
+.w-richtext>:first-child {
+    margin-top: 0;
+}
+
+.w-richtext>:last-child {
+    margin-bottom: 0;
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.no-pointer-events {
+    pointer-events: none;
+}
+
+.text-btn:hover .text-btn-icon-bg path {
+    fill: url(#linear-fill);
+    stroke: url(#linear-fill);
+}
+
+.text-btn:hover .text-btn-icon-arrow path {
+    fill: #fff;
+}
+
+.text-gradient-blue,
+.text-gradient-purple {
+    -webkit-box-decoration-break: clone;
+}
+
+.nav-menu-link:hover .nav-menu-link-underline {
+    opacity: 1;
+}
+
+.nav {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.nav.open .nav-top {
+    color: #fff;
+}
+
+.nav.open .nav-menu-lottie {
+    -webkit-filter: invert(0%);
+    filter: invert(0%);
+}
+
+.nav.dark .nav-top {
+    color: #fff;
+}
+
+.nav.dark .nav-menu-lottie {
+    -webkit-filter: invert(0%);
+    filter: invert(0%);
+}
+
+@media only screen and (max-width: 1640px) {
+    .nav.scrolled {
+        background: rgba(241, 245, 249, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .nav.scrolled.dark {
+        background: rgba(16, 37, 57, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
+
+.blur-shape,
+.footer-bg {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.text-link {
+    text-underline-offset: 0.2em;
+}
+
+.footer-link:hover .footer-link-underline {
+    opacity: 1;
+}
+
+.pipeline-tab-link.w--current h4 {
+    font-weight: 700;
+}
+
+.pipeline-tab-link.w--current .pipeline-tab-link-indicator {
+    background: #ED48CC;
+}
+
+.nav.open .nav-menu-link {
+    -webkit-animation: navLinkIn 0.4s backwards ease;
+    animation: navLinkIn 0.4s backwards ease;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.nav.open .nav-menu-link:nth-child(2) {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.nav.open .nav-menu-link:nth-child(3) {
+    -webkit-animation-delay: 0.15s;
+    animation-delay: 0.15s;
+}
+
+.nav.open .nav-menu-link:nth-child(4) {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.nav.open .nav-menu-link:nth-child(5) {
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
+}
+
+@-webkit-keyframes navLinkIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: auto;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes navLinkIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: auto;
+        transform: translateY(0px);
+    }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+@media only screen and (max-width: 479px) and (max-height: 650px) {
+    .nav-menu-link {
+        font-size: 38px;
+    }
+}
+/*fin step-2*/ 
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga" 1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+.w-richtext>:first-child {
+    margin-top: 0;
+}
+
+.w-richtext>:last-child {
+    margin-bottom: 0;
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.no-pointer-events {
+    pointer-events: none;
+}
+
+.text-btn:hover .text-btn-icon-bg path {
+    fill: url(#linear-fill);
+    stroke: url(#linear-fill);
+}
+
+.text-btn:hover .text-btn-icon-arrow path {
+    fill: #fff;
+}
+
+.text-gradient-blue,
+.text-gradient-purple {
+    -webkit-box-decoration-break: clone;
+}
+
+.nav-menu-link:hover .nav-menu-link-underline {
+    opacity: 1;
+}
+
+.nav {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.nav.open .nav-top {
+    color: #fff;
+}
+
+.nav.open .nav-menu-lottie {
+    -webkit-filter: invert(0%);
+    filter: invert(0%);
+}
+
+.nav.dark .nav-top {
+    color: #fff;
+}
+
+.nav.dark .nav-menu-lottie {
+    -webkit-filter: invert(0%);
+    filter: invert(0%);
+}
+
+@media only screen and (max-width: 1640px) {
+    .nav.scrolled {
+        background: rgba(241, 245, 249, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .nav.scrolled.dark {
+        background: rgba(16, 37, 57, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
+
+.blur-shape,
+.footer-bg {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.text-link {
+    text-underline-offset: 0.2em;
+}
+
+.footer-link:hover .footer-link-underline {
+    opacity: 1;
+}
+
+.pipeline-tab-link.w--current h4 {
+    font-weight: 700;
+}
+
+.pipeline-tab-link.w--current .pipeline-tab-link-indicator {
+    background: #ED48CC;
+}
+
+.nav.open .nav-menu-link {
+    -webkit-animation: navLinkIn 0.4s backwards ease;
+    animation: navLinkIn 0.4s backwards ease;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.nav.open .nav-menu-link:nth-child(2) {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.nav.open .nav-menu-link:nth-child(3) {
+    -webkit-animation-delay: 0.15s;
+    animation-delay: 0.15s;
+}
+
+.nav.open .nav-menu-link:nth-child(4) {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.nav.open .nav-menu-link:nth-child(5) {
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
+}
+
+@-webkit-keyframes navLinkIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: auto;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes navLinkIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: auto;
+        transform: translateY(0px);
+    }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+@media only screen and (max-width: 479px) and (max-height: 650px) {
+    .nav-menu-link {
+        font-size: 38px;
+    }
+}
+
+.slides-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet le retour à la ligne si trop d'images */
+    justify-content: center; /* Centre les images */
+    gap: 40px; /* Espace entre les images, ajustez selon vos besoins */
+}
+
+.slide img {
+    width: 8%; /* Ajustez cette valeur selon vos besoins */
+    height: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.text-center.font-weight-bold {
+    font-size: 25px; /* Vous pouvez ajuster cette taille selon vos besoins */
+}
+
+.slides-container {
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    gap: 20px; /* Space between images */
+}
+
+.slide img {
+    width: 8%; /* Adjust this value as needed */
+    height: auto;
+}
+
+
+.hero h1 {
+    -webkit-animation: fadeIn 0.6s backwards ease;
+    animation: fadeIn 0.6s backwards ease;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.hero p {
+    -webkit-animation: fadeIn 0.6s backwards ease;
+    animation: fadeIn 0.6s backwards ease;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.hero .text-btn {
+    -webkit-animation: fadeIn 0.6s backwards ease;
+    animation: fadeIn 0.6s backwards ease;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.hero img {
+    -webkit-animation: fadeIn 0.6s backwards ease;
+    animation: fadeIn 0.6s backwards ease;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: auto;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: auto;
+        transform: translateY(0px);
+    }
+}
+.publications-item:hover .heading-xxs {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 380px) {
+    .home-prom-section .heading-xl {
+        font-size: 34px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .home-prom-headline-1 .science-prom-card-item {
+        height: 190px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .home-prom-headline-1 .science-prom-card-item {
+        height: 215px;
+    }
+}
+
+@media only screen and (max-width: 365px) {
+    .home-prom-headline-1 .science-prom-card-item {
+        height: 225px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .home-prom-headline-1 .science-prom-card-item {
+        height: 250px;
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    .science-hero-img {
+        width: 58vw;
+        max-width: 90vh;
+    }
+}
+
+@media only screen and (max-width: 410px) and (min-width: 380px) {
+    .home-prom-headline-2 .science-prom-card-item {
+        height: 200px;
+    }
+}
+
+h2 {
+    text-align: center;
+    padding: 20px;
+}
+.slick-slide {
+    margin: 0 20px;
+}
+.slick-slide img {
+    width: 100%;
+}
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+.slick-slide img {
+    display: block;
+}
+.slick-initialized .slick-slide {
+    display: block;
+}
+.copy {
+    padding-top: 250px;
+}
+/* Popup container - can be anything you want */
+.popup {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border: 1px solid #888;
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+z-index: 100;
+background-color: white;
+padding: 20px;
+width: 80%;
+max-width: 600px;
+height: auto;
+}
+
+/* Close button */
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+.button-container {
+display: flex;
+justify-content: center; /* Center the buttons horizontally */
+}
+
+.inline-buttons {
+padding: 10px 20px;
+cursor: pointer;
+}
+.loading-unique {
+text-align: center;
+margin-top: 50px;
+}
+.loading-unique img {
+width: 50px;
+height: 50px;
+}
+
+.modal-dialog-unique {
+max-width: 90%;
+}
+
+/* Custom styles for the modal */
+.custom-modal .modal-content {
+background: white;
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+border-radius: 8px;
+}
+
+.custom-modal .modal-header {
+border-bottom: none;
+}
+
+.custom-modal .modal-title {
+font-size: 1.5rem;
+}
+
+.custom-modal .close {
+font-size: 1.5rem;
+color: #aaa;
+}
+
+.custom-modal .modal-body {
+padding: 20px;
+text-align: center;
+}
+
+.custom-modal .modal-footer {
+border-top: none;
+}
+
+.modal-backdrop.show {
+opacity: 0.5;
+}
+
+#overlay2 {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.7); /* Darker background for better focus */
+z-index: 1000;
+}
+
+#popup2 {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 80%; /* Wider popup */
+max-width: 700px;
+background: #f7f7f7; /* Light grey background */
+border-radius: 10px;
+padding: 20px;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+z-index: 1001;
+overflow-y: auto; /* Enable vertical scrolling */
+max-height: 80vh; /* Limit the height for scroll */
+text-align: left; /* Align text to left for readability */
+}
+
+/* Popup Close Button */
+#popup-close {
+position: absolute;
+top: 10px;
+right: 10px;
+cursor: pointer;
+font-size: 24px;
+color: #555; /* Softer close button color */
+}
+
+#popup-close:hover {
+color: #000; /* Darker on hover */
+}
+
+/* Modal Title */
+#popup2 h1 {
+font-size: 24px;
+margin-bottom: 15px;
+color: #333; /* Darker text for better readability */
+}
+
+/* Section Titles */
+#popup2 h2 {
+font-size: 20px;
+margin-top: 20px;
+margin-bottom: 10px;
+color: #444;
+border-bottom: 2px solid #ddd;
+padding-bottom: 5px;
+}
+
+/* Paragraphs */
+#popup2 p {
+font-size: 16px;
+line-height: 1.6;
+color: #555;
+margin-bottom: 10px;
+}
+
+/* Buttons */
+#popup-close-button {
+margin-top: 20px;
+background-color: #007bff; /* Bootstrap blue */
+color: #fff;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+
+#popup-close-button:hover {
+background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Scrollbar Styling (Webkit-based browsers) */
+#popup2::-webkit-scrollbar {
+width: 8px;
+}
+
+#popup2::-webkit-scrollbar-thumb {
+background-color: #ccc; 
+border-radius: 10px;
+}
+
+#popup2::-webkit-scrollbar-thumb:hover {
+background-color: #aaa;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+#popup2 {
+width: 90%; /* Smaller popup on small screens */
+}
+
+#popup2 h1 {
+font-size: 20px;
+}
+
+#popup2 h2 {
+font-size: 18px;
+}
+
+#popup2 p {
+font-size: 14px;
+}
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.best-model {
+    font-weight: bold;
+    color: #4CAF50;
+}

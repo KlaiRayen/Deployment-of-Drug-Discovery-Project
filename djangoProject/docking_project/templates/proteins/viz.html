@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDB Viewer</title>
+    <script src="https://3dmol.org/build/3Dmol-min.js"></script>
+</head>
+<body>
+    <h1>PDB Viewer</h1>
+    <div id="viewer" style="width: 800px; height: 600px;"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let pdbContent = `{{ pdb_content|escapejs }}`;
+            let viewer = $3Dmol.createViewer("viewer", {defaultcolors: $3Dmol.rasmolElementColors});
+            viewer.addModel(pdbContent, "pdb");
+            viewer.setStyle({}, {cartoon: {color: 'spectrum'}});
+            viewer.zoomTo();
+            viewer.render();
+        });
+    </script>
+</body>
+</html>

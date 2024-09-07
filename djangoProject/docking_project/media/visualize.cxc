@@ -1,6 +1,6 @@
 
-open C:\\Users\\klair\\Desktop\\AutomatedDocking\\Automated-Docking\\djangoProject\\docking_project\\media\\3f7360dd-4670-46bd-8d2d-a9ee1708018d.pdb
-open C:\\Users\\klair\\Desktop\\AutomatedDocking\\Automated-Docking\\djangoProject\\docking_project\\media\\ligand_3d.pdb
+open C:\\Users\\klair\\Desktop\\AutomatedDocking\\Automated-Docking\\djangoProject\\docking_project\\media\\1stp_DOCK.pdbqt
+open C:\\Users\\klair\\Desktop\\AutomatedDocking\\Automated-Docking\\djangoProject\\docking_project\\media\\lig.pdbqt
 color byhet
 view
 save C:\\Users\\klair\\Desktop\\AutomatedDocking\\Automated-Docking\\djangoProject\\docking_project\\media\\output_image.png format png

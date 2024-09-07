@@ -224,6 +224,7 @@ def upload_and_visualize_pdb(request):
 
 
 
+
 from .forms import DrugDiscoveryForm
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
@@ -272,118 +273,209 @@ def get_center_of_mass(mol):
     center_of_mass = np.mean(pos, axis=0)
     return center_of_mass
 
+import os
+from django.core.files.storage import FileSystemStorage
+from django.conf import settings
+from django.core.files.base import ContentFile
+from django.shortcuts import render
+from rdkit import Chem
+from rdkit.Chem import AllChem, Draw
+import py3Dmol
+import subprocess
+from .forms import DrugDiscoveryForm
+def parse_cohere_output(cohere_output):
+    # Define regex patterns to extract required details
+    patterns = {
+        'nom_ligand': r'Nom du ligand\s*:\s*(.*)',
+        'formule_smiles': r'Formule SMILES\s*:\s*(.*)',
+        'formule_chimique': r'Formule chimique\s*:\s*(.*)',
+        'poids_moleculaire': r'Poids moléculaire\s*:\s*(.*)',
+        'configuration': r'Configuration\s*:\s*(.*)',
+        'affinite_liaison': r'Affinité de liaison\s*:\s*(.*)',
+        'type_liaison': r'Type de liaison\s*:\s*(.*)',
+        'site_liaison': r'Site de liaison\s*:\s*(.*)',
+    }
+    
+    # Extract details using regex
+    details = {}
+    for key, pattern in patterns.items():
+        match = re.search(pattern, cohere_output, re.IGNORECASE)
+        details[key] = match.group(1).strip() if match else ''
+
+    return details
+
+
+import numpy as np
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.core.files.base import ContentFile
+from django.core.files.storage import FileSystemStorage
+import subprocess
+import os
+from rdkit import Chem
+from rdkit.Chem import AllChem
+import py3Dmol
+import json
+import cohere
+from groq import Groq
+
 def drug_discovery_view(request):
     if request.method == 'POST':
-        form = DrugDiscoveryForm(request.POST)
-        if form.is_valid():
-            amino_acid_sequence = form.cleaned_data['amino_acid_sequence']
-            virus_name = form.cleaned_data['virus_name']
-            additional_features = form.cleaned_data['additional_features']
+        amino_acid_sequence = request.POST.get('amino_acid_sequence')
+        virus_name = request.POST.get('virus_name')
+        additional_features = request.POST.get('additional_features')
 
-            llama3_user_prompt = f"""
-                You are a researcher working on chemical structures. Provide only and without any description a SMILES structure for a ligand that does not already exist to target a virus for use in drug discovery. The ligand should only contain the following features:
-                - benzene rings
-                - carboxylic acid groups
-                - amine groups
-                - side chains
-                Give only and only the SMILES representation. No descriptions or details or introduction to what are you going to give.
-                The virus details are as follows:
-                Name: {virus_name}
-                Amino Acid Sequence:
-                {amino_acid_sequence}
-                Additional Characteristics:
-                {additional_features}
-            """
+        llama3_user_prompt = f"""
+            You are a researcher working on chemical structures. Provide only and without any description a SMILES structure for a ligand that does not already exist to target a virus for use in drug discovery. The ligand should only contain the following features:
+            - benzene rings
+            - carboxylic acid groups
+            - amine groups
+            - side chains
+            Give only and only the SMILES representation. No descriptions or details or introduction to what are you going to give.
+            The virus details are as follows:
+            Name: {virus_name}
+            Amino Acid Sequence:
+            {amino_acid_sequence}
+            Additional Characteristics:
+            {additional_features}
+        """
 
-            client = Groq()
-            completion = client.chat.completions.create(
-                model="llama3-70b-8192",
-                messages=[{"role": "user", "content": llama3_user_prompt}],
-                temperature=1,
-                max_tokens=1024,
-                top_p=1,
-                stream=True,
-                stop=None,
-            )
+        client = Groq()
+        completion = client.chat.completions.create(
+            model="llama3-70b-8192",
+            messages=[{"role": "user", "content": llama3_user_prompt}],
+            temperature=1,
+            max_tokens=1024,
+            top_p=1,
+            stream=True,
+            stop=None,
+        )
 
-            smile = ""
-            for chunk in completion:
-                smile += chunk.choices[0].delta.content or ""
+        smile = ""
+        for chunk in completion:
+            smile += chunk.choices[0].delta.content or ""
 
-            # Cohere part
-            co = cohere.Client(api_key="5D2ZAmR16ezQCY893TAP8txMO24yEFMbK8wBbAyA")
-            prompt = f"""
-            Vous êtes un chercheur spécialisé dans la découverte de médicaments. Voici une structure SMILE générée par un modèle :
-            {smile}
-            Pouvez-vous affiner cette structure et ajouter des détails supplémentaires, notamment des propriétés pharmacocinétiques potentielles et une description détaillée ?
-            """
+        # Cohere part
+        co = cohere.Client(api_key="5D2ZAmR16ezQCY893TAP8txMO24yEFMbK8wBbAyA")
+        prompt = f"""
+        Vous êtes un chercheur spécialisé dans la découverte de médicaments. Voici une structure SMILE générée par un modèle :
+        {smile}
 
-            response = co.generate(
-                model="command-r-plus",
-                prompt=prompt,
-                max_tokens=300,
-                temperature=0.7,
-                k=0,
-                p=0.75,
-                frequency_penalty=0,
-                presence_penalty=0,
-                stop_sequences=[]
-            )
+        ### Exemple de la maladie d'Alzheimer :
+        Examples for answering:
+        Question: Pouvez-vous affiner cette structure et ajouter une description détaillée de ses caractéristiques chimiques tel que nom ligand, formule chimique, poids moléculaire,configuration, affinité de liaison, type de liaison interaction avec la protéine cible ainsi que l'importance et la justification de ce choix dans la découverte de médicaments ?
+        Answer:
+        Nom du ligand: Donepezil
+        Structure moléculaire:
+                  O=C-N(CH3)-C(CH3)2-C-CN
+                  |  |  |   ||   |
+                  N-CH3  O  N  CH  N
+                  |      |   | \  |
+                  C-N-CH3  C  C-C-C-C
+                  |    |   |   |   |
+                  CH3   H   H   H   H
 
-            def validate_smiles(smiles):
-                try:
-                    mol = Chem.MolFromSmiles(smiles)
-                    if mol is None:
-                        return False
-                    return True
-                except:
-                    return False
+        Description détaillée:
+        Groupe amine tertiaire: Contient un atome d'azote lié à trois groupes alkyle (méthyle et éthyle).
+        Ether phénylique: Un atome d'oxygène lié à un groupe phényle (un anneau benzénique substitué par un groupe méthoxy).
+        Carbamate: Un groupe ester formé par une liaison entre un atome de carbone carbonyle et un groupe amine.
+        Anneau benzénique: Un anneau aromatique à six membres contenant des doubles liaisons conjuguées.
+        Groupe méthoxy: Un groupe méthyle lié à un atome d'oxygène.
+        Groupe méthyle: Un atome de carbone lié à trois atomes d'hydrogène.
+        Détails de la Structure
+        Nom du Ligand: Ligand-123
+        Formule SMILES: CCCCCCCCCCC(C(=O)O)N
+        Formule Chimique: C20H22O4
+        Poids Moléculaire: 310.39 g/mol
+        Configuration: Configuration tridimensionnelle optimisée avec une géométrie stable.
+        Affinité de Liaison
+        Affinité de Liaison: 8.5 nM
+        Type de Liaison: Liaison covalente
+        Interaction avec le Protéine Cible
+        Site de Liaison: Site actif de la protéine cible
 
-            smiles = smile.strip()
-            if not validate_smiles(smiles):
-                return render(request, 'drug_discovery/invalid_smiles.html')
+        Importance et justification de ce choix dans la découverte de médicaments :
+        Le donepezil est crucial dans la découverte de médicaments en raison de son rôle en tant qu'inhibiteur de la cholinestérase,
+        ce qui augmente les niveaux de neurotransmetteurs dans le cerveau. Utilisé principalement pour traiter la maladie d'Alzheimer,
+        il a non seulement démontré une amélioration des fonctions cognitives des patients, mais il a également établi une base pour
+        le développement de nouveaux traitements ciblant les voies neurochimiques impliquées dans les maladies neurodégénératives.
+        Sa capacité à améliorer les symptômes de la démence a fait de lui un modèle pour la conception de futurs médicaments.
+        rappelez-vous, ce n'était qu'un exemple !!.
+        ### Demande:
+        Pouvez-vous affiner cette structure et ajouter une description détaillée de ses caractéristiques chimiques en utilisant le format suivant :
+        - Nom du ligand: 
+        - Formule SMILES: 
+        - Formule chimique: 
+        - Poids moléculaire: 
+        - Configuration: 
+        - Affinité de liaison: 
+        - Type de liaison: 
+        - Site de liaison: 
+        """
 
-            mol = Chem.MolFromSmiles(smiles)
-            img = Draw.MolToImage(mol)
+        response = co.generate(
+            model="command-r-plus",
+            prompt=prompt,
+            max_tokens=3000,
+            temperature=0.7,
+            k=0,
+            p=0.75,
+            frequency_penalty=0,
+            presence_penalty=0,
+            stop_sequences=[]
+        )
 
-            mol = Chem.AddHs(mol)
-            AllChem.EmbedMolecule(mol, randomSeed=42)
+        smiles = smile.strip()
+        mol = Chem.MolFromSmiles(smiles)
+        
+        if mol is None:
+            return JsonResponse({'error': 'Invalid SMILES string generated. Please try again.'}, status=400)
 
-            # Save the PDB file in the media directory
-            fs = FileSystemStorage(location=settings.MEDIA_ROOT)
-            pdb_path = fs.save('ligand_3d.pdb', ContentFile(Chem.MolToPDBBlock(mol)))
-            pdb_url = fs.url(pdb_path)
+        mol = Chem.AddHs(mol)
+        AllChem.EmbedMolecule(mol, randomSeed=42)
 
-            # Extract ligand identifier from PDB
-            ligand_identifier = extract_ligand_identifier_from_pdb(os.path.join(settings.MEDIA_ROOT, 'ligand_3d.pdb'))
+        # Save the PDB file in the media directory
+        fs = FileSystemStorage(location=settings.MEDIA_ROOT)
+        pdb_path = fs.save('ligand_3d.pdb', ContentFile(Chem.MolToPDBBlock(mol)))
+        pdb_url = fs.url(pdb_path)
 
-            # Prepare 3D visualization
-            view = py3Dmol.view(width=800, height=400)
-            with open(settings.MEDIA_ROOT + '/ligand_3d.pdb', 'r') as f:
-                pdb_data = f.read()
-            view.addModel(pdb_data, 'pdb')
-            view.setStyle({'stick': {}})
-            view.setBackgroundColor('white')
-            view.zoomTo()
-            html = view._make_html()
+        # Convert the PDB file to PDBQT using Open Babel
+        pdbqt_path = os.path.join(settings.MEDIA_ROOT, 'ligand_3d.pdbqt')
+        subprocess.run(['obabel', os.path.join(settings.MEDIA_ROOT, pdb_path), '-O', pdbqt_path])
 
-            cent = get_center_of_mass(mol)
+        # Extract ligand identifier from PDB
+        ligand_identifier = extract_ligand_identifier_from_pdb(os.path.join(settings.MEDIA_ROOT, 'ligand_3d.pdb'))
 
-            context = {
-                'form': form,
-                'smiles': smile,
-                'cohere_output': response.generations[0].text,
-                'img': img,
-                'html': html,
-                'pdb_url': pdb_url,  # Add the URL for downloading the PDB file
-                'ligand_identifier': ligand_identifier,
-                'cent': cent,
-            }
-            return render(request, 'drug_discovery/result.html', context)
+        # Prepare 3D visualization
+        view = py3Dmol.view(width=800, height=400)
+        with open(settings.MEDIA_ROOT + '/ligand_3d.pdb', 'r') as f:
+            pdb_data = f.read()
+        view.addModel(pdb_data, 'pdb')
+        view.setStyle({'stick': {}})
+        view.setBackgroundColor('white')
+        view.zoomTo()
+        html = view._make_html()
+
+        cent = get_center_of_mass(mol)
+        cohere_output = response.generations[0].text.strip()
+        parsed_output = parse_cohere_output(cohere_output)
+
+        # Convert NumPy arrays to lists if any
+        if isinstance(cent, np.ndarray):
+            cent = cent.tolist()
+
+        response_data = {
+            'parsed_output': parsed_output,
+            'cohere_output': cohere_output,
+            'html': html,  # Add additional HTML content if needed
+            'pdb_url': '/path/to/pdb',
+            'pdbqt_url': '/path/to/pdbqt',
+            'cent': 'Some additional data if needed'
+        }
+        
+        return JsonResponse(response_data)
     else:
-        form = DrugDiscoveryForm()
-    return render(request, 'drug_discovery/index.html', {'form': form})
-
+        return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 
 
@@ -394,12 +486,25 @@ import requests
 import subprocess
 from django.conf import settings
 from django.shortcuts import render
+import os
+import uuid
+import requests
+from django.conf import settings
+from django.shortcuts import render
+
+from django.http import JsonResponse
+import requests
+import uuid
+import os
+from django.conf import settings
+from django.shortcuts import render
+
 
 def predict_structure(request):
     if request.method == 'POST':
-        sequence = request.POST.get('sequence')
+        sequence = request.POST.get('aminoAcidSequence')
         if not sequence:
-            return render(request, 'proteins/predict.html', {'error': 'La séquence est requise.'})
+            return JsonResponse({'error': 'The sequence is required.'})
 
         try:
             response = requests.post(
@@ -411,26 +516,35 @@ def predict_structure(request):
 
             protein_id = str(uuid.uuid4())
             pdb_path = os.path.join(settings.MEDIA_ROOT, f'{protein_id}.pdb')
-            pdbqt_path = os.path.join(settings.MEDIA_ROOT, f'{protein_id}.pdbqt')
 
             # Save the PDB file
             with open(pdb_path, 'w') as f:
                 f.write(response.text)
 
-            # Convert PDB to PDBQT using Open Babel command line
-            convert_pdb_to_pdbqt(pdb_path, pdbqt_path)
+            # Load the PDB content
+            with open(pdb_path, 'r') as pdb_file:
+                pdb_content = pdb_file.read()
 
-            return render(request, 'proteins/predict.html', {'message': 'La prédiction de la structure a été sauvegardée.', 'file': f'{protein_id}.pdbqt', 'id': protein_id})
+            return JsonResponse({'pdb_content': pdb_content})
         except requests.RequestException as e:
-            return render(request, 'proteins/predict.html', {'error': 'Erreur lors de la prédiction de la structure.'})
+            print(f'Request error: {e}')  # Log the exception
+            return JsonResponse({'error': 'Error predicting the structure.'})
         except Exception as e:
-            return render(request, 'proteins/predict.html', {'error': f'Erreur lors de la conversion: {str(e)}'})
+            print(f'Conversion error: {e}')  # Log the exception
+            return JsonResponse({'error': f'Error during conversion: {str(e)}'})
 
-    return render(request, 'proteins/predict.html')
+    return render(request, 'finalTemplate2.html')
 
-def convert_pdb_to_pdbqt(pdb_path, pdbqt_path):
-    # Path to Open Babel executable
+
+
+def convert_pdb_to_mid(pdb_path,mid_path):
     obabel_executable = r'C:\Users\klair\Desktop\AutomatedDocking\Automated-Docking\OpenBabel-2.4.1\babel.exe'
-    command = [obabel_executable, pdb_path, '-O', pdbqt_path]
+    command = [obabel_executable, pdb_path, '-O', mid_path,'-xr -p 7.4']
     subprocess.run(command, check=True)
 
+
+    
+def convert_mid_to_pdbqt(mid_path,pdbqt_path):
+    obabel_executable = r'C:\Users\klair\Desktop\AutomatedDocking\Automated-Docking\OpenBabel-2.4.1\babel.exe'
+    command = [obabel_executable, mid_path, '-O', pdbqt_path,'-xr --partialcharge eem']
+    subprocess.run(command, check=True)

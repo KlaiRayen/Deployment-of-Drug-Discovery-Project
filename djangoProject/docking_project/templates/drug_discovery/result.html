@@ -1,20 +1,23 @@
-<!-- drug_discovery/templates/drug_discovery/result.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Drug Discovery Result</title>
-</head>
-<body>
+<!-- drug_discovery/templates/drug_discovery/result_partial.html -->
+<div>
     <h1>Drug Discovery Result</h1>
     <p>LLaMA3 Output SMILES: {{ smiles }}</p>
-    <p>Cohere Output: {{ cohere_output }}</p>
-    <h2>2D Structure</h2>
-    <img src="data:image/png;base64,{{ img }}" alt="2D Structure">
+    <h2>Détails de la Structure</h2>
+    <p>Nom du Ligand: {{ parsed_output.nom_ligand }}</p>
+    <p>Formule SMILES: {{ parsed_output.formule_smiles }}</p>
+    <p>Formule Chimique: {{ parsed_output.formule_chimique }}</p>
+    <p>Poids Moléculaire: {{ parsed_output.poids_moleculaire }}</p>
+    <p>Configuration: {{ parsed_output.configuration }}</p>
+
+    <h2>Affinité de Liaison</h2>
+    <p>Affinité de Liaison: {{ parsed_output.affinite_liaison }}</p>
+    <p>Type de Liaison: {{ parsed_output.type_liaison }}</p>
+
+    <h2>Interaction avec la Protéine Cible</h2>
+    <p>Site de Liaison: {{ parsed_output.site_liaison }}</p>
     <h2>3D Structure</h2>
     <div>
         {{ html|safe }}
     </div>
     <h1>{{cent}}</h1>
-    <a href="{% url 'index' %}">Back</a>
-</body>
-</html>
+</div>
